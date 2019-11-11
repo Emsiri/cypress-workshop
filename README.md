@@ -24,6 +24,6 @@ yarn
 ```
 Lastly, to verify your install run the following:
 ```
-yarn run cypress
+yarn test
 ```
 And you should see the Cypress runner open with the smoketest listed.

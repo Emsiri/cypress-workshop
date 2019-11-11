@@ -4,7 +4,8 @@
   "description": "Lab and workshop for Jumbo QAs",
   "main": "index.js",
   "scripts": {
-    "test": "cypress open"
+    "test": "cypress open --config baseUrl=http://www.ozlotteries.${USER}.dev.lan --env TEST_API_URL=http://test-api.jl.${USER}.dev.lan",
+    "test:run": "cypress run --config baseUrl=http://www.ozlotteries.${USER}.dev.lan --env TEST_API_URL=http://test-api.jl.${USER}.dev.lan"
   },
   "author": "",
   "license": "ISC",
