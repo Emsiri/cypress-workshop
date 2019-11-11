@@ -1,7 +1,7 @@
-# Lab 1:
+# Lab 1
 Get all the requirements for Cypress installed and write your first test!
 
-## Requirements:
+## Requirements
     Node.js version 12.10.*; Yarn version 1.17.3. (Tested versions.)
 ```
 	Your exact versions will depend on your distribution and how you have installed them. For Ubuntu:
