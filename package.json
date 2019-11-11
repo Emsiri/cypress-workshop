@@ -1,0 +1,14 @@
+{
+  "name": "cypress-workshop",
+  "version": "1.0.0",
+  "description": "Lab and workshop for Jumbo QAs",
+  "main": "index.js",
+  "scripts": {
+    "test": "cypress open"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^3.6.1"
+  }
+}
