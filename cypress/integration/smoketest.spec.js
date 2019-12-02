@@ -9,7 +9,7 @@ describe("Smoke test.", () => {
 	it("should display the home page", () => {
 		// All cypress comands start with cy
 		// visit loads the URL within the braces and waits for the page to fully load before continuing
-		cy.visit("https://www.ozlotteries.com/")
+		cy.visit("/")
 		// Assertion on what text the h1 contains
 		cy.title().should("contain", "Oz Lotteries")
 		cy.get('#header_login_button').click()
@@ -35,7 +35,7 @@ describe("Smoke test.", () => {
 	});
 
 	it('Login',()=>{
-		cy.visit("https://www.ozlotteries.com/")
+		cy.visit("/")
 		cy.get('#header_login_button').click()
 		cy.get('#dynamic_customer_login_form_email').type('hetas_1111@benon.com')
 		cy.get('#dynamic_customer_login_form_password').type('abcd1234')
