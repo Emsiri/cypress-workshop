@@ -16,23 +16,22 @@ function createNewUserDetails() {
 }
 const userDetails = createNewUserDetails();
 
+
 describe("Register and login test", () => {
 	it("should Register correctly", () => {
 		cy.visit("/");
 		cy.title().should("contain", "Oz Lotteries");
 		cy.get("#header_login_button").click();
-		cy.get("#loginFormContainer_registerLink").click();
-		cy.url().should("contain", "signup");
+		cy.get("#loginRegisterForm_email").type(userDetails.email);
+		cy.getByDataId("loginRegisterForm_submit").click();
 		cy.fillRegistrationFormAndSubmit(userDetails);
 	});
 	it("should login correctly", () => {
-		cy.visit("/");
-		cy.get("#header_login_button").click();
-		cy.get("#dynamic_customer_login_form_form").within(() => {
-			cy.get("#dynamic_customer_login_form_email").type(userDetails.email);
-			cy.get("#dynamic_customer_login_form_password").type(userDetails.password);
-			cy.get("[data-id='dynamic_customer_login_form_submitButton']").click();
-		})
-		cy.get("#nav_logout_link");
+		cy.server()
+			.route("/api/v2/customer")
+			.as("customer");
+
+		cy.userCreate().userLoginWithAPI("/powerball");
+		cy.get("#nav_logout_link").should("be", "visible");
 	})
 });
