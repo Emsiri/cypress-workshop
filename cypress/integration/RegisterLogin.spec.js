@@ -1,6 +1,7 @@
 /// <reference types="Cypress" />
 
 import faker from "faker";
+faker.locale = "en_AU";
 
 function createNewUserDetails() {
 	const email = `test_${Date.now()}@benon.com`;
@@ -30,8 +31,8 @@ describe("Register and login test", () => {
 		cy.server()
 			.route("/api/v2/customer")
 			.as("customer");
-
-		cy.userCreate().userLoginWithAPI("/powerball");
+		const apiVersion = "2.9";
+		cy.userCreate().userLoginWithAPI("/powerball", apiVersion);
 		cy.get("#nav_logout_link").should("be", "visible");
 	})
 });
