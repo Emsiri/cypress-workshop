@@ -64,19 +64,20 @@ Cypress.Commands.add("userCreate", (body = {}) => {
 	});
 });
 
-Cypress.Commands.add("userLoginWithAPI", { prevSubject: "optional" }, (subject, reloadOnPage, email, password) => {
+Cypress.Commands.add("userLoginWithAPI", { prevSubject: "optional" }, (subject, reloadOnPage, email, password, apiVersion = "2.9") => {
 	const domain = Cypress.config("baseUrl").replace(/https?:\/\/www/, "");
 	const appKey = "ozlotteries_ios_1";
 	const appSecret = "cho4Maec2Shoom3Aigie";
 	const time = Date.now();
 	const skey = sha1(`${appKey}${time}${appSecret}`);
 	const apiUrl = Cypress.config().baseUrl.replace("www.", "api.");
+	
 
 	cy.request({
 		method: "POST",
 		url: `${apiUrl}/v2/login`,
 		headers: {
-			"X-Jumbo-Version": "2.9",
+			"X-Jumbo-Version": apiVersion,
 			"X-Jumbo-AppKey": appKey,
 			"X-Jumbo-SKEY": skey,
 			"X-Jumbo-Timestamp": time,
