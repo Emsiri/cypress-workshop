@@ -4,12 +4,16 @@
   "description": "Lab and workshop for Jumbo QAs",
   "main": "index.js",
   "scripts": {
-    "test": "cypress open --config baseUrl=http://www.ozlotteries.${USER}.dev.lan --env TEST_API_URL=http://test-api.jl.${USER}.dev.lan",
-    "test:run": "cypress run --config baseUrl=http://www.ozlotteries.${USER}.dev.lan --env TEST_API_URL=http://test-api.jl.${USER}.dev.lan"
+    "test": "cypress open --config baseUrl=http://www.ozlotteries.${USER}.dev.lan --env USER=${USER},TEST_API_URL=http://test-api.jl.${USER}.dev.lan",
+    "test:run": "cypress run --config baseUrl=http://www.ozlotteries.${USER}.dev.lan --env USER=${USER},TEST_API_URL=http://test-api.jl.${USER}.dev.lan"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "cypress": "^3.6.1"
+    "cypress": "3.8.0",
+    "uniqid": "^5.2.0"
+  },
+  "dependencies": {
+    "faker": "^4.1.0"
   }
 }
